@@ -12,6 +12,13 @@
     "build:icons": "node src/generateIcons.js",
     "build:lib": "webpack --config webpack.config.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/castrogusttavo/houston-vue.git"
+  },
+  "bugs": {
+    "url": "https://github.com/castrogusttavo/houston-vue.git/issues"
+  },
   "keywords": [
     "icons",
     "react-icons",
@@ -25,6 +32,13 @@
     "icon-library"
   ],
   "author": "castrogusttavo",
+  "workspaces": [
+    "packages/*"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "packageManager": "npm@20.0.0",
   "license": "CC0-1.0",
   "description": "Houston Icons Pro React Component Library",
   "dependencies": {
