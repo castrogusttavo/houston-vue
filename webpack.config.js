@@ -19,7 +19,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        exclude: '/node_modules/',
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader'
         }
@@ -27,7 +27,9 @@ module.exports = {
     ]
   },
   plugins: [
-    new VueLoaderPlugin()
+    new VueLoaderPlugin({
+      Vue: 'vue'
+    })
   ],
   externals: {
     vue: 'Vue'
