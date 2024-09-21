@@ -1,0 +1,25 @@
+
+<template>
+  <Icon :iconName="'analysis-text-link'" v-bind="props" />
+</template>
+
+<script>
+import Icon from '../Icon.vue';
+
+export default {
+  name: 'AnalysisTextLinkIcon',
+  components: { Icon },
+  props: {
+    iconName: {
+      type: String,
+      default: 'analysis-text-link'
+    },
+    ...Icon.props
+  },
+  computed: {
+    props() {
+      return { ...this.$props };
+    }
+  }
+};
+</script>
