@@ -51,47 +51,81 @@ Access over 27,000 icons within the library, ensuring you'll find the exact icon
 To start using HoustonIcons-React in your project, install the package via npm:
 
 ```bash
-npm install @houstonicons/react
+npm install @houstonicons/vue
 ```
 
 Or via yarn:
 
 ```bash
-yarn add @houstonicons/react
+yarn add @houstonicons/vue
 ```
 
 ## Usage Examples
 
-Import the icons you need from the library and integrate them into your React components. Here's how you can customize the icons to fit your needs:
+Import the icons you need from the library and integrate them into your Vue components. Here's how you can customize the icons to fit your needs:
 
 ### Control Icon Size
 
 Adjust the size of your icons by passing a `size` prop:
 
-```jsx
-import { Home01Icon } from "@houstonicons/react";
+```vue
+<template>
+  <div>
+    <Home01Icon :iconSize="24" /> // Custom size
+  </div>
+</template>
 
-<Home01Icon size={32} />; // Custom size
+<script setup="ts">
+import { Home01Icon } from "@houstonicons/vue";
+</script>
 ```
 
 ### Customize Icon Color
 
 Change the color of your icons by passing a `color` prop:
 
-```jsx
-import { MarketingIcon } from "@houstonicons/react";
+```vue
+<template>
+  <div>
+    <MarketingIcon :color="'#00FF00'" /> // Green color
+  </div>
+</template>
 
-<MarketingIcon color="#00FF00" />; // Green color
+<script setup="ts">
+import { MarketingIcon } from "@houstonicons/vue";
+</script>
+```
+
+### Adjust Icon Corners
+
+Easily modify the corner style of your icons by using the cornerStyle prop:
+
+```vue
+<template>
+  <div>
+    <ListSettingIcon :cornerStyle="'rounded'" /> // Solid fill
+  </div>
+</template>
+
+<script setup="ts">
+import { ListSettingIcon } from "@houstonicons/vue";
+</script>
 ```
 
 ### Control Icon Fill Type
 
 Set the fill style of your icons using the fillType prop:
 
-```jsx
-import { AddSquareIcons } from "@houstonicons/react";
+```vue
+<template>
+  <div>
+    <AddSquareIcons :fillType="'solid'" /> // Solid fill
+  </div>
+</template>
 
-<AddSquareIcons fillType="solid" />; // Solid fill
+<script setup="ts">
+import { AddSquareIcons } from "@houstonicons/vue";
+</script>
 ```
 
 ## Live Example
