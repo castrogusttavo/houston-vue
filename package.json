@@ -1,0 +1,63 @@
+{
+  "name": "@houstonicons/vue",
+  "description": "Houston Icons Pro Vue Component Library",
+  "author": "castrogusttavo",
+  "license": "CC0-1.0",
+  "version": "3.1.0",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js"
+    },
+    "./dist": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js"
+    }
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/castrogusttavo/houston-vue.git"
+  },
+  "bugs": {
+    "url": "https://github.com/castrogusttavo/houston-vue.git/issues"
+  },
+"scripts": {
+  "build": "node --max-old-space-size=4096 ./node_modules/vite/bin/vite.js build && npm run build:types",
+  "build:types": "node --max-old-space-size=4096 ./node_modules/vue-tsc/bin/vue-tsc.js --declaration --emitDeclarationOnly"
+},
+  "dependencies": {
+    "esbuild": "^0.24.0",
+    "esbuild-plugin-globals": "^0.2.0",
+    "fs": "^0.0.1-security",
+    "npx": "^10.2.2",
+    "tsc": "^2.0.4",
+    "url": "^0.11.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.5",
+    "@types/vue": "^1.0.31",
+    "@vitejs/plugin-vue": "^5.1.4",
+    "@vue/compiler-sfc": "^3.5.7",
+    "fast-glob": "^3.3.2",
+    "html-loader": "^5.1.0",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.2",
+    "vite": "^5.4.7",
+    "vite-plugin-svg-icons": "^2.0.1",
+    "vue": "^3.5.8",
+    "vue-tsc": "^2.1.6"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "packageManager": "npm@20.0.0"
+}
