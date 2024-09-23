@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, ref, onMounted } from 'vue';
+import { defineComponent, PropType, ref, watch } from 'vue';
 
 export default defineComponent({
   props: {
@@ -17,7 +17,7 @@ export default defineComponent({
     },
     color: {
       type: String,
-      default: 'currentColor',
+      default: '#000000',
     },
     fillType: {
       type: String as PropType<'stroke' | 'solid' | 'bulk' | 'duotone' | 'twotone'>,
@@ -31,23 +31,43 @@ export default defineComponent({
   setup(props) {
     const svgContent = ref('');
 
-    onMounted(async () => {
-      const validatedIconName = props.iconName;
+    const loadSvg = async () => {
+      const validatedIconName = String(props.iconName);
       const iconUrl = `https://cdn.hugeicons.com/icons/${validatedIconName}-${props.fillType}-${props.cornerStyle}.svg`;
 
       try {
         const response = await fetch(iconUrl);
         const svgText = await response.text();
+        const parser = new DOMParser();
+        const svgDoc = parser.parseFromString(svgText, 'image/svg+xml');
+        const svgNode = svgDoc.documentElement;
 
-        const modifiedSvg = svgText
-          .replace(/fill="[^"]*"/g, `fill="${props.color}"`)
-          .replace(/stroke="[^"]*"/g, `stroke="${props.color}"`);
+        svgNode.setAttribute('width', props.iconSize.toString());
+        svgNode.setAttribute('height', props.iconSize.toString());
+        svgNode.setAttribute('color', props.color);
 
-        svgContent.value = modifiedSvg;
+        svgNode.querySelectorAll('*').forEach((element) => {
+          const hasFill = element.hasAttribute('fill');
+          const hasStroke = element.hasAttribute('stroke');
+
+          if (hasFill) {
+            element.setAttribute('fill', 'currentColor');
+          }
+          if (hasStroke) {
+            element.setAttribute('stroke', 'currentColor');
+          }
+        });
+
+        svgContent.value = svgNode.outerHTML;
       } catch (error) {
-        console.error('Erro ao carregar o SVG:', error);
+        console.error(`Error loading SVG icon: ${error}`);
+        svgContent.value = '';
       }
-    });
+    };
+
+    watch([() => props.iconName, () => props.iconSize, () => props.fillType, () => props.cornerStyle, () => props.color], loadSvg);
+
+    loadSvg();
 
     return { svgContent };
   },

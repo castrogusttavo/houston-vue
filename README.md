@@ -6,7 +6,7 @@ Welcome to the professional edition of Houston for React — an extensive librar
 
 Thousands of designers, developers, and content creators use Houston Pro for unlimited personal and commercial projects, making it one of the most versatile and user-friendly icon libraries available.
 
-Discover more at our website: [houston.com](https://houston-icons.vercel.app/)
+Discover more at our website: [houston.com](https://houstonicons.com.br/)
 
 ![image](./public/tools.svg)
 
@@ -22,7 +22,7 @@ Discover more at our website: [houston.com](https://houston-icons.vercel.app/)
 
 ## General Usage
 
-Icons can be downloaded from the [Houston website](https://houston-icons.vercel.app) and used in your projects. The icons are available in SVG format and can be easily integrated into your applications.
+Icons can be downloaded from the [Houston website](https://houstonicons.com.br) and used in your projects. The icons are available in SVG format and can be easily integrated into your applications.
 
 ## Features
 
@@ -130,7 +130,7 @@ import { AddSquareIcons } from "@houstonicons/vue";
 
 ## Live Example
 
-Explore a live demonstration of HugeIcons React in action at [Houston Pro Example](https://houston-icons.vercel.app/use-cases). This example showcases the versatility and ease of customizing our icons to fit your design needs, providing a hands-on experience with the icon collection.
+Explore a live demonstration of HugeIcons React in action at [Houston Pro Example](https://houstonicons.com.br/use-cases). This example showcases the versatility and ease of customizing our icons to fit your design needs, providing a hands-on experience with the icon collection.
 
 ## FAQ
 
