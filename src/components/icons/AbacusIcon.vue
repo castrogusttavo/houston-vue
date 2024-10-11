@@ -1,7 +1,7 @@
 <template>
   <Icon 
     iconName="abacus" 
-    v-bind="{ iconSize, color, fillType, cornerStyle }"
+    v-bind="{ size, color, variant, corner }"
   />
 </template>
 
@@ -13,7 +13,7 @@ export default defineComponent({
   name: 'AbacusIcon',
   components: { Icon },
   props: {
-    iconSize: {
+    size: {
       type: Number,
       default: 24,
     },
@@ -21,11 +21,11 @@ export default defineComponent({
       type: String,
       default: 'currentColor',
     },
-    fillType: {
+    variant: {
       type: String as PropType<'stroke' | 'solid' | 'bulk' | 'duotone' | 'twotone'>,
       default: 'stroke',
     },
-    cornerStyle: {
+    corner: {
       type: String as PropType<'sharp' | 'rounded' | 'standard'>,
       default: 'rounded',
     },

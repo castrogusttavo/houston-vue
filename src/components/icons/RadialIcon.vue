@@ -1,5 +1,5 @@
 <template>
-  <Icon iconName="radial" v-bind="{ iconSize, color, fillType, cornerStyle }" />
+  <Icon iconName="radial" v-bind="{ size, color, variant, corner }" />
 </template>
 
 <script lang="ts">
@@ -10,7 +10,7 @@ export default defineComponent({
   name: 'RadialIcon',
   components: { Icon },
   props: {
-    iconSize: {
+    size: {
       type: Number,
       default: 24,
     },
@@ -18,11 +18,11 @@ export default defineComponent({
       type: String,
       default: 'currentColor',
     },
-    fillType: {
+    variant: {
       type: String as PropType<'stroke' | 'solid' | 'bulk' | 'duotone' | 'twotone'>,
       default: 'stroke',
     },
-    cornerStyle: {
+    corner: {
       type: String as PropType<'sharp' | 'rounded' | 'standard'>,
       default: 'rounded',
     },

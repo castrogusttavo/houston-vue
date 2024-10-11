@@ -1,5 +1,5 @@
 <template>
-  <div v-html="svgContent" :style="{ width: iconSize + 'px', height: iconSize + 'px' }"></div>
+  <div v-html="svgContent" :corner="{ width: size + 'px', height: size + 'px' }"></div>
 </template>
 
 <script lang="ts">
@@ -11,7 +11,7 @@ export default defineComponent({
       type: String,
       required: true,
     },
-    iconSize: {
+    size: {
       type: Number,
       default: 24,
     },
@@ -19,11 +19,11 @@ export default defineComponent({
       type: String,
       default: '#000000',
     },
-    fillType: {
+    variant: {
       type: String as PropType<'stroke' | 'solid' | 'bulk' | 'duotone' | 'twotone'>,
       default: 'stroke',
     },
-    cornerStyle: {
+    corner: {
       type: String as PropType<'sharp' | 'rounded' | 'standard'>,
       default: 'rounded',
     },
@@ -33,7 +33,7 @@ export default defineComponent({
 
     const loadSvg = async () => {
       const validatedIconName = String(props.iconName);
-      const iconUrl = `https://cdn.hugeicons.com/icons/${validatedIconName}-${props.fillType}-${props.cornerStyle}.svg`;
+      const iconUrl = `https://cdn.hugeicons.com/icons/${validatedIconName}-${props.variant}-${props.corner}.svg`;
 
       try {
         const response = await fetch(iconUrl);
@@ -42,8 +42,8 @@ export default defineComponent({
         const svgDoc = parser.parseFromString(svgText, 'image/svg+xml');
         const svgNode = svgDoc.documentElement;
 
-        svgNode.setAttribute('width', props.iconSize.toString());
-        svgNode.setAttribute('height', props.iconSize.toString());
+        svgNode.setAttribute('width', props.size.toString());
+        svgNode.setAttribute('height', props.size.toString());
         svgNode.setAttribute('color', props.color);
 
         svgNode.querySelectorAll('*').forEach((element) => {
@@ -65,7 +65,7 @@ export default defineComponent({
       }
     };
 
-    watch([() => props.iconName, () => props.iconSize, () => props.fillType, () => props.cornerStyle, () => props.color], loadSvg);
+    watch([() => props.iconName, () => props.size, () => props.variant, () => props.corner, () => props.color], loadSvg);
 
     loadSvg();
 

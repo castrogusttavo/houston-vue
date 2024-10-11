@@ -71,12 +71,12 @@ Adjust the size of your icons by passing a `size` prop:
 ```vue
 <template>
   <div>
-    <Home01Icon :iconSize="24" /> // Custom size
+    <home-01-icon size="128" /> // Custom size
   </div>
 </template>
 
 <script setup="ts">
-import { Home01Icon } from "@houstonicons/vue";
+  import { Home01Icon } from "@houstonicons/vue";
 </script>
 ```
 
@@ -87,7 +87,7 @@ Change the color of your icons by passing a `color` prop:
 ```vue
 <template>
   <div>
-    <MarketingIcon :color="'#00FF00'" /> // Green color
+    <marketing-icon color="#00FF00" /> // Green color
   </div>
 </template>
 
@@ -98,12 +98,12 @@ import { MarketingIcon } from "@houstonicons/vue";
 
 ### Adjust Icon Corners
 
-Easily modify the corner style of your icons by using the cornerStyle prop:
+Easily modify the corner style of your icons by using the ``type`` prop:
 
 ```vue
 <template>
   <div>
-    <ListSettingIcon :cornerStyle="'rounded'" /> // Solid fill
+    <list-setting-icon type="rounded" /> // Solid fill
   </div>
 </template>
 
@@ -114,12 +114,12 @@ import { ListSettingIcon } from "@houstonicons/vue";
 
 ### Control Icon Fill Type
 
-Set the fill style of your icons using the fillType prop:
+Set the fill style of your icons using the ``variant`` prop:
 
 ```vue
 <template>
   <div>
-    <AddSquareIcons :fillType="'solid'" /> // Solid fill
+    <add-square-icon variant="solid" /> // Solid fill
   </div>
 </template>
 
